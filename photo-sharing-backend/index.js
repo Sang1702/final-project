@@ -10,7 +10,7 @@ dbConnect();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://gl7c62-3001.csb.app/"],
   })
 );
 app.use(express.json());
