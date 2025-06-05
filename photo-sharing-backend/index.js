@@ -8,27 +8,45 @@ const AuthRouter = require("./routes/AuthRouter");
 
 dbConnect();
 
-app.use(cors({
-  origin: "http://localhost:3000"
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://z2rvhv-3000.csb.app"],
+  })
+);
 app.use(express.json());
 app.use("/api", UserRouter);
 app.use("/api/photo", PhotoRouter);
-app.use("/api", AuthRouter)
+app.use("/api", AuthRouter);
 
-const path = require('path')
-const fs = require("fs")
+const path = require("path");
+const fs = require("fs");
 
 // const { fileName } = req.params
-console.log(path.join(__dirname, '..', 'images', "1748903561150-683d718262b4fbff0af1a25c.jpg"))
-console.log("file")
-fs.readFile(path.join(__dirname, '..', 'images', "1748903561150-683d718262b4fbff0af1a25c.jpg"), "utf-8", (err, data) => {
-  if(err) {
-    console.log(err)
-    return
+console.log(
+  path.join(
+    __dirname,
+    "..",
+    "images",
+    "1748903561150-683d718262b4fbff0af1a25c.jpg"
+  )
+);
+console.log("file");
+fs.readFile(
+  path.join(
+    __dirname,
+    "..",
+    "images",
+    "1748903561150-683d718262b4fbff0af1a25c.jpg"
+  ),
+  "utf-8",
+  (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log("data: ", data);
   }
-  console.log("data: ", data)
-})
+);
 app.listen(8081, () => {
   console.log("server listening on port 8081");
 });
