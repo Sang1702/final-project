@@ -10,7 +10,7 @@ dbConnect();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://z2rvhv-3000.csb.app"],
+    origin: "http://localhost:3000",
   })
 );
 app.use(express.json());
@@ -27,7 +27,7 @@ console.log(
     __dirname,
     "..",
     "images",
-    "1748903561150-683d718262b4fbff0af1a25c.jpg"
+    "1749024404595-683ffe5012582c57297ed1fc.jpg"
   )
 );
 console.log("file");
@@ -36,7 +36,7 @@ fs.readFile(
     __dirname,
     "..",
     "images",
-    "1748903561150-683d718262b4fbff0af1a25c.jpg"
+    "1749024404595-683ffe5012582c57297ed1fc.jpg"
   ),
   "utf-8",
   (err, data) => {
